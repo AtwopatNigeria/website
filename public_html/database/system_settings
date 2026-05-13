@@ -1,0 +1,8 @@
+CREATE TABLE system_settings (
+    id INT PRIMARY KEY,
+    registration_fee INT DEFAULT 5000,
+    paystack_public_key VARCHAR(255),
+    paystack_secret_key VARCHAR(255),
+    admin_notification_email VARCHAR(255)
+);
+INSERT INTO system_settings (id, registration_fee) VALUES (1, 5000);
