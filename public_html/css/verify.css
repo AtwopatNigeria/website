@@ -1,0 +1,228 @@
+/* =========================================================
+   ATWOPAT - CONSOLIDATED STYLESHEET (verify.css)
+   Updated: May 2026
+   ========================================================= */
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* BODY & BACKGROUND */
+body {
+  color: #fff;
+  text-align: center;
+  /* Updated path to your images folder */
+  background: url("images/hero-bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s ease;
+}
+
+/* OVERLAY */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(16, 61, 117, 0.4); /* Brand blue tint */
+  z-index: -1;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* LOGO */
+.logo {
+  width: 120px; /* Adjusted size for better proportions */
+  margin: 20px auto;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+/* TITLE BOX */
+.title-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 800px;
+  margin: 10px auto 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.title-box h1 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #e2e8f0;
+}
+
+/* SEARCH & INPUTS */
+.search-box {
+  margin: 25px 0;
+}
+
+input {
+  padding: 15px 20px;
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+  border: none;
+  background: #f2f5fa;
+  color: #103d75;
+  font-size: 16px;
+  box-shadow: inset 4px 4px 8px rgba(0,0,0,0.05);
+}
+
+/* BUTTONS */
+button {
+  padding: 12px 24px;
+  margin: 8px;
+  background: #103d75;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(16, 61, 117, 0.3);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background: #14509a;
+}
+
+button:disabled {
+  background: #7c8aa5;
+  cursor: not-allowed;
+}
+
+/* INFO SECTION */
+.info {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-title {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+
+.info ul {
+  list-style: none;
+}
+
+.info li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #d1d9e6;
+}
+
+/* --- SUCCESS MODAL & CHECKMARK --- */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #f2f5fa;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  text-align: center;
+  background: #f2f5fa;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 20px 20px 60px #ced4da, -20px -20px 60px #ffffff;
+}
+
+.checkmark {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 4;
+  stroke: #fff;
+  margin: 0 auto 20px;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke: #22c55e;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke { 100% { stroke-dashoffset: 0; } }
+@keyframes scale { 0%, 100% { transform: none; } 50% { transform: scale3d(1.1, 1.1, 1); } }
+@keyframes fill { 100% { box-shadow: inset 0px 0px 0px 40px #22c55e; } }
+
+/* FOOTER */
+footer {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* DARK MODE OVERRIDES */
+body.dark {
+  background: #0f172a;
+}
+body.dark::before {
+  background: rgba(0, 0, 0, 0.8);
+}
+body.dark .modal-content {
+  background: #1e293b;
+  box-shadow: none;
+}
+
+/* MODE BUTTON */
+.mode-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 100;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
