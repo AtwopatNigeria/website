@@ -1,2 +1,5 @@
+
+/* Add tracking for monthly dues and the admin email setting */
 ALTER TABLE members ADD COLUMN last_dues_payment DATE NULL;
 ALTER TABLE system_settings ADD COLUMN monthly_dues_amount INT DEFAULT 2000;
+ALTER TABLE system_settings ADD COLUMN admin_notification_email VARCHAR(255) DEFAULT 'your-email@example.com';
