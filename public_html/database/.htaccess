@@ -1,0 +1,6 @@
+# public_html/database/.htaccess
+Options -Indexes
+Deny from all
+<Files "connection.php">
+    Allow from all
+</Files>
