@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATWOPAT Verification</title>
+
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- QR Library -->
+  <script src="https://unpkg.com/html5-qrcode"></script>
+
+  <style>
+    /* Inline Loader Styles */
+    #loader {
+      display: none;
+      margin: 15px auto;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #103d75;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #reader {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+
+<button class="mode-btn" onclick="toggleMode()">🌙 / ☀️</button>
+
+<header>
+  <img src="images/logo.png" class="logo" alt="ATWOPAT Logo">
+
+  <div class="title-box">
+    <h1>ASSOCIATION OF TABLE WATER OPERATORS AND TECHNICIANS</h1>
+    <p class="subtitle">
+      <span></span>
+      ATWOPAT MEMBER VERIFICATION
+      <span></span>
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <!-- SEARCH BOX -->
+  <div class="search-box">
+    <input type="text" id="memberID" placeholder="Enter Member ID or Scan QR">
+    <button id="searchBtn" onclick="searchWithLoader()">Search 🔍</button>
+  </div>
+
+  <div id="loader"></div>
+
+  <!-- ACTION BUTTONS -->
+  <div class="button-group">
+    <a href="register.html">
+      <button class="secondary-btn">Apply as New Member</button>
+    </a>
+    <button class="secondary-btn" onclick="startScanner()">Scan QR 📷</button>
+  </div>
+
+  <!-- SCANNER CONTAINER -->
+  <div id="reader"></div>
+
+  <!-- RESULT AREA -->
+  <div id="resultContainer"></div>
+
+  <!-- IMPORTANT INFO -->
+  <section class="info">
+    <h3 class="info-title">ℹ️ IMPORTANT INFORMATION</h3>
+    <ul>
+      <li>✔ All members must verify their ID using the search above</li>
+      <li>✔ QR codes are unique and cannot be duplicated</li>
+      <li>✔ Membership status must be active for validation</li>
+      <li>✔ For concerns, please contact ATWOPAT Executives</li>
+    </ul>
+  </section>
+
+</main>
+
+<!-- SUCCESS OVERLAY (Added for animation) -->
+<div id="success-modal" class="modal-overlay">
+  <div class="modal-content">
+    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+      <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+      <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+    </svg>
+    <h2 class="status-title">Member Verified!</h2>
+    <p class="status-message">Loading member details...</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 ATWOPAT. All rights reserved.</p>
+</footer>
+
+<!-- Updated script paths -->
+<script src="js/verify.js"></script>
+
+<script>
+function toggleMode() {
+  document.body.classList.toggle("dark");
+}
+
+function searchWithLoader() {
+  const loader = document.getElementById("loader");
+  const button = document.getElementById("searchBtn");
+  const memberInput = document.getElementById("memberID").value.trim();
+
+  if(!memberInput) {
+    alert("Please enter a Member ID");
+    return;
+  }
+
+  loader.style.display = "block";
+  button.disabled = true;
+
+  // We call the function inside your verify.js
+  setTimeout(() => {
+    if (typeof performVerification === "function") {
+      performVerification(memberInput);
+    }
+    loader.style.display = "none";
+    button.disabled = false;
+  }, 1000);
+}
+</script>
+
+</body>
+</html>
