@@ -1,0 +1,173 @@
+/* =========================================================
+   ATWOPAT - MEMBER PORTAL STYLES
+   Theme: Glassmorphism / Neumorphic Blue
+   Updated: May 2026
+   ========================================================= */
+
+:root {
+    --primary-blue: #103d75;
+    --accent-gold: #f59e0b;
+    --success-green: #22c55e;
+    --danger-red: #ef4444;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --card-white: rgba(255, 255, 255, 0.95);
+}
+
+/* Layout Containers */
+.dashboard-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+}
+
+/* Sidebar Styling */
+aside {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.sidebar-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+}
+
+/* Main Content Area */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.content-box {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+}
+
+/* Digital ID Card Specifics */
+.id-card {
+    width: 100%;
+    max-width: 350px;
+    background: var(--card-white);
+    border-radius: 20px;
+    padding: 20px;
+    color: var(--primary-blue);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    margin: 0 auto;
+}
+
+.id-card img.profile-pic {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+/* Form Styles for Profile/Settings */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.input-group input, 
+.input-group select, 
+.input-group textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 12px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--accent-gold);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.input-group input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--accent-gold);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #d97706;
+    transform: translateY(-2px);
+}
+
+/* Alert Messages */
+.alert {
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.alert-success { background: rgba(34, 197, 94, 0.2); border: 1px solid var(--success-green); color: #4ade80; }
+.alert-error { background: rgba(239, 68, 68, 0.2); border: 1px solid var(--danger-red); color: #f87171; }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .dashboard-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    aside {
+        position: relative;
+        top: 0;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
