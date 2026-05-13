@@ -1,0 +1,52 @@
+.registration-card {
+    max-width: 600px; /* Wider for the details */
+}
+
+.form-grid {
+    text-align: left;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.form-row input, .form-row select {
+    flex: 1;
+    width: 50%;
+}
+
+.styled-select {
+    width: 100%;
+    padding: 18px 20px;
+    border: none;
+    border-radius: 18px;
+    background: #f2f5fa;
+    color: #103d75;
+    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.05), inset -5px -5px 10px rgba(255,255,255,0.9);
+}
+
+.label-text {
+    color: #103d75;
+    font-weight: bold;
+    margin: 10px 0 5px 5px;
+    font-size: 14px;
+}
+
+.experience-options {
+    display: flex;
+    gap: 20px;
+    margin: 5px 0 20px 5px;
+    color: #555;
+}
+
+.experience-options label {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Fix for File Input shadow */
+input[type="file"] {
+    padding: 15px 55px;
+}
