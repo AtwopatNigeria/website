@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ATWOPAT - Member Registration</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Paystack SDK -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script defer src="js/register.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="login-card registration-card">
+      
+      <div class="logo-box">
+        <img src="images/logo.png" alt="Logo" class="logo">
+      </div>
+
+      <h1>Join ATWOPAT</h1>
+      <p class="subtitle">Complete your details and pay ₦1,500 registration fee</p>
+
+      <div id="messageBox"></div>
+
+      <form id="registrationForm">
+        <div class="form-grid">
+          <!-- Full Name -->
+          <div class="input-group">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="fullName" placeholder="Full Name" required>
+          </div>
+
+          <!-- Email -->
+          <div class="input-group">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="email" placeholder="Email Address" required>
+          </div>
+
+          <!-- Phone -->
+          <div class="input-group">
+            <i class="fa-solid fa-phone"></i>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+          </div>
+
+          <!-- Gender & DOB -->
+          <div class="form-row">
+             <select id="gender" class="styled-select" required>
+                <option value="">Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+             </select>
+             <input type="date" id="dob" required title="Date of Birth">
+          </div>
+
+          <!-- State & LGA -->
+          <div class="form-row">
+            <input type="text" id="state" placeholder="State" required>
+            <input type="text" id="lga" placeholder="Local Govt" required>
+          </div>
+
+          <!-- Full Address -->
+          <div class="input-group">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="text" id="address" placeholder="Full Home/Office Address" required>
+          </div>
+
+          <!-- Role -->
+          <div class="input-group">
+            <i class="fa-solid fa-briefcase"></i>
+            <select id="role" class="styled-select" required>
+                <option value="">Select Role</option>
+                <option value="Operator">Operator</option>
+                <option value="Technician">Technician</option>
+                <option value="Executive">Executive</option>
+            </select>
+          </div>
+
+          <!-- Years of Experience -->
+          <p class="label-text">Years of Experience:</p>
+          <div class="experience-options">
+            <label><input type="radio" name="exp" value="1-3"> 1-3 yrs</label>
+            <label><input type="radio" name="exp" value="4-7"> 4-7 yrs</label>
+            <label><input type="radio" name="exp" value="8+"> 8+ yrs</label>
+          </div>
+
+          <!-- Passport Upload -->
+          <p class="label-text">Upload Passport Photo:</p>
+          <div class="input-group">
+            <i class="fa-solid fa-image"></i>
+            <input type="file" id="passport" accept="image/*" required>
+          </div>
+        </div>
+
+        <button type="submit" class="login-btn" id="payBtn">
+          Pay ₦1,500 & Register
+        </button>
+      </form>
+
+      <p class="register-text">Already a member? <a href="login.html">Login</a></p>
+    </div>
+  </div>
+
+  <!-- SUCCESS OVERLAY -->
+  <div id="success-modal" class="modal-overlay">
+    <div class="modal-content">
+      <svg class="checkmark" viewBox="0 0 52 52">
+        <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+        <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+      </svg>
+      <h2 class="status-title">Registration Successful!</h2>
+      <p class="status-message">Payment verified. Your ID is being generated...</p>
+    </div>
+  </div>
+
+</body>
+</html>
